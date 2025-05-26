@@ -16,7 +16,7 @@ const drawSnake = () => {
             ctx.fillStyle = "green"
         }
 
-        ctx.fillReact(position.x, position.y, size, size)
+        ctx.fillRect(position.x, position.y, size, size)
     })
 
 }
