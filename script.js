@@ -7,7 +7,25 @@ const snake = [
     {x: 270, y: 240}
 ]
 
+const food = {
+    x: 90,
+    y: 90,
+    color: "orange"
+}
+
 let direction, loopId
+
+const drawFood = () => {
+    const {x, y, color} = food
+
+    ctx.shadowColor = color
+    ctx.shadowBlur = 50
+    ctx.fillStyle = color
+    ctx.fillStyle = color
+    ctx.fillRect(x, y, size, size)
+    ctx.shadowBlur = 0
+
+}
 
 const drawSnake = () => {
     ctx.fillStyle = "#ddd"
@@ -48,23 +66,19 @@ const moveSnake = () => {
 
 const drawGrid = () => {
     ctx.lineWidth = 1
-    ctx.stronkeStyle = "#191919"
+    ctx.strokeStyle = "#191919"
 
     for (let i = 30; i < canvas.width; i += 30) {
-        ctx.beginPatch()
+        ctx.beginPath()
         ctx.lineTo(i, 0)
         ctx.lineTo(i, 600)
         ctx.stroke()
 
-        ctx.beginPatch()
+        ctx.beginPath()
         ctx.lineTo(0, i)
         ctx.lineTo(600, i)
         ctx.stroke()
-
-        
-    }
-
-    
+    }   
 }
 
 
@@ -74,14 +88,13 @@ const gameLoop = () => {
 
     ctx.clearRect(0, 0, 600, 600)
     drawGrid()
+    drawFood()
     moveSnake()
     drawSnake()
 
     loopId = setTimeout(() => {
         gameLoop()
-
-    }, 50)
-
+    }, 70)
 
 }
 
