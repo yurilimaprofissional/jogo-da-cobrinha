@@ -1,7 +1,7 @@
 const canvas = document.querySelector("canvas")
 const ctx = canvas.getContext("2d")
 
-const h1 = document.querySelector("h1")
+
 
 const size = 30
 
@@ -26,7 +26,6 @@ const randomColor = () => {
     return `rgb(${red}, ${green}, ${blue})`
 }
 
-h1.innerText = randomColor()
 
 const food = {
     x: randomPosition(),
@@ -102,7 +101,9 @@ const drawGrid = () => {
     }   
 }
 
+const checkEat = () => {
 
+}
 
 const gameLoop = () => {
     clearInterval(loopId)
