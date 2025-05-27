@@ -50,14 +50,19 @@ const drawGrid = () => {
     ctx.lineWidth = 1
     ctx.stronkeStyle = "red"
 
-    for(let i = 30; i <) {
+    for(let i = 30; i < canvas.width; i += 30) {
+        ctx.beginPatch()
+        ctx.lineTo(i, 0)
+        ctx.lineTo(i, 600)
+        ctx.stroke()
 
         
     }
 
-    ctx.lineTo(300, 0)
-    ctx.lineTo(300, 0)
+    
 }
+
+drawGrid()
 
 const gameLoop = () => {
     clearInterval(loopId)
