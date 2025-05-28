@@ -102,6 +102,23 @@ const drawGrid = () => {
 }
 
 const checkEat = () => {
+    const head = snake[snake.length - 1]
+
+    if(head.x == food.x && head.y == food.y) {
+        snake.push(head)
+
+        let x = randomPosition()
+        let y = randomPosition()
+
+        while (snake.find((position) => position.x == x && position.y == y)) {
+            x = randomPosition()
+            y = randomPosition()
+        }
+
+        food.x = x,
+        food.y = y,
+        food.color = randomColor()
+    }
 
 }
 
@@ -113,6 +130,7 @@ const gameLoop = () => {
     drawFood()
     moveSnake()
     drawSnake()
+    checkEat()
 
     loopId = setTimeout(() => {
         gameLoop()
