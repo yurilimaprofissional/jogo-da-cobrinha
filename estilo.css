@@ -18,11 +18,17 @@ body {
 }
 
 h1 {
-    color: #01df22;
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bolder;
+    margin-top: 7px;
 }
 
 canvas {
     background-color: #a5fc8f;
+    box-shadow: 10px 10px 15px black;
+    margin-bottom: 20px;
+    height: 450px;
 
 }
 
@@ -31,6 +37,7 @@ canvas {
     flex-direction: column;
     align-items: center;
     font-size: 1.8rem;
+    margin-top: 20px;
 }
 
 .score--value {
@@ -50,16 +57,22 @@ canvas {
 
 .game-over {
     text-transform: uppercase;
-    font-weight: 700;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 900;
     font-size: 3rem;
+    color: #006310;
 }
 
 .final-score {
-    font-weight: 500;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 900;
     font-size: 1.5rem;
+    color: #006310;
+
 }
 
 .btn-play {
+    background-color: black;
     border: none;
     border-radius: 100px;
     padding: 10px 15px 10px 12px;
@@ -73,3 +86,9 @@ canvas {
     gap: 5px;
     cursor: pointer;
 }
+
+.btn-play:hover {
+    background-color: #006310;
+    color: white;
+}
+
