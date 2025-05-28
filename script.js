@@ -10,15 +10,13 @@ const audio = new Audio('audio.mp3')
 
 const size = 30
 
-const snake = [
-    {x: 270, y: 240},
-    {x: 300, y: 240},
-    {x: 330, y: 240},
-    {x: 360, y: 240},
-    {x: 390, y: 240},
-    {x: 420, y: 240}
-    
-]
+const initialPosition = {x: 270, y: 240}
+
+let snake = [initialPosition]
+
+const incrementScore = () => {
+    placar.innerText = +placar.innerText + 10
+}
 
 const randomNumber = (min, max) => {
     return Math.round(Math.random() * (max - min) + min)
@@ -115,7 +113,8 @@ const drawGrid = () => {
 const checkEat = () => {
     const head = snake[snake.length - 1]
 
-    if(head.x == food.x && head.y == food.y) {
+    if (head.x == food.x && head.y == food.y) {
+        incrementScore()
         snake.push(head)
         audio.play()
 
@@ -153,6 +152,10 @@ const checkCollision = () => {
 
 const gameOver = () => {
     direction = undefined
+
+    menu.style.display = "flex"
+    placarFinal.innerText = placar.innerText
+    canvas.style.filter = "blur(2px)"
 }
 
 const gameLoop = () => {
@@ -190,5 +193,13 @@ document.addEventListener("keydown",({ key }) => {
     if (key == "ArrowUp" && direction != "down") {
         direction = "up"
     }
+})
+
+buttonPlay.addEventListener("click", () => {
+    placar.innerText = "00"
+    menu.style.display = "none"
+    canvas.style.filter = "none"
+
+    snake = [initialPosition]
 })
 
