@@ -1,6 +1,11 @@
 const canvas = document.querySelector("canvas")
 const ctx = canvas.getContext("2d")
 
+const placar = document.querySelector(".placar-value")
+const finalScore = document.querySelector(".placar-final > span")
+const menu = document.querySelector(".menu-screen")
+const buttonPlay = document.querySelector(".btn-play")
+
 const audio = new Audio('audio.mp3')
 
 const size = 30
