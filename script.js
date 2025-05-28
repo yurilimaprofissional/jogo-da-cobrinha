@@ -6,7 +6,7 @@ const finalScore = document.querySelector(".final-score > span")
 const menu = document.querySelector(".menu-screen")
 const buttonPlay = document.querySelector(".btn-play")
 
-const audio = new Audio("../assets/audio.mp3")
+const audio = new Audio("audio.mp3")
 
 const size = 30
 
@@ -47,18 +47,18 @@ const drawFood = () => {
     const { x, y, color } = food
 
     ctx.shadowColor = color
-    ctx.shadowBlur = 6
+    ctx.shadowBlur = 50
     ctx.fillStyle = color
     ctx.fillRect(x, y, size, size)
     ctx.shadowBlur = 0
 }
 
 const drawSnake = () => {
-    ctx.fillStyle = "#ddd"
+    ctx.fillStyle = "black"
 
     snake.forEach((position, index) => {
         if (index == snake.length - 1) {
-            ctx.fillStyle = "white"
+            ctx.fillStyle = "black"
         }
 
         ctx.fillRect(position.x, position.y, size, size)
@@ -90,8 +90,8 @@ const moveSnake = () => {
 }
 
 const drawGrid = () => {
-    ctx.lineWidth = 1
-    ctx.strokeStyle = "#191919"
+    ctx.lineWidth = 0.3
+    ctx.strokeStyle = "green"
 
     for (let i = 30; i < canvas.width; i += 30) {
         ctx.beginPath()
@@ -166,7 +166,7 @@ const gameLoop = () => {
 
     loopId = setTimeout(() => {
         gameLoop()
-    }, 300)
+    }, 80)
 }
 
 gameLoop()
